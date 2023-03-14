@@ -18,7 +18,7 @@ namespace Bagy_Yazilim.Forms
         {
             InitializeComponent();
         }
-       // public string girilenSayi;
+        // public string girilenSayi;
 
         private void btnKatEkle_Click(object sender, EventArgs e)
         {

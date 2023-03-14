@@ -53,7 +53,7 @@
             // 
             // flpKatlar
             // 
-            flpKatlar.Location = new Point(46, 112);
+            flpKatlar.Location = new Point(46, 132);
             flpKatlar.Name = "flpKatlar";
             flpKatlar.Size = new Size(303, 144);
             flpKatlar.TabIndex = 2;
