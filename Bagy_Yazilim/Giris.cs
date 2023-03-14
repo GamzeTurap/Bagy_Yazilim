@@ -23,6 +23,7 @@ namespace Bagy_Yazilim
                 _katForm.DataContext = _dataContext;
                 _katForm.Show();
             }
+
         }
 
         private void masaEkleToolStripMenuItem_Click(object sender, EventArgs e)
