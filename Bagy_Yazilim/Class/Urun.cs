@@ -11,5 +11,11 @@ public class Urun
     public string Ad { get; set; }
     public string Fiyat { get; set; }
     public byte[] Fotograf { get; set; }
+    public int AdisyondakiAdet { get; set; }
+    public decimal ToplamFiyat()
+    {
+        return Fiyat * AdisyondakiAdet;
+    }
+
     public override string ToString() => $"{this.Ad} {this.Fiyat}";
 }

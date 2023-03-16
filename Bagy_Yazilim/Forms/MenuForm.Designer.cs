@@ -84,7 +84,6 @@
             lstUrunList.Name = "lstUrunList";
             lstUrunList.Size = new Size(120, 184);
             lstUrunList.TabIndex = 3;
-            lstUrunList.SelectedIndexChanged += lstUrunList_SelectedIndexChanged;
             // 
             // picBoxFotograf
             // 

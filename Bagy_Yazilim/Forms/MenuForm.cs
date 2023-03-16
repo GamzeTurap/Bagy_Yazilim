@@ -24,21 +24,18 @@ public partial class MenuForm : Form
             Urun yeniUrun = new Urun()
             {
                 Ad = txtUrun.Text,
-                Fiyat = txtFiyat.Text,
+                Fiyat = txtFiyat.Text
 
             };
-
             if (_memoryStream.Length > 0)
             {
                 yeniUrun.Fotograf = _memoryStream.ToArray();
             }
-
             _memoryStream = new MemoryStream();
             _urunler.Add(yeniUrun);
             lstUrunList.DataSource = _urunler;
             //FormuTemizle();
         }
-
     }
 
     private void picBoxFotograf_Click(object sender, EventArgs e)
@@ -65,13 +62,13 @@ public partial class MenuForm : Form
     private void silToolStripMenuItem_Click(object sender, EventArgs e)
     {
         if (lstUrunList.SelectedItem == null) return;
-        var seciliUrun = lstUrunList.SelectedItem as Urun;
+        var _seciliUrun = lstUrunList.SelectedItem as Urun;
 
-        DialogResult result = MessageBox.Show($"{seciliUrun.Ad} ürünü silmek istiyor musunuz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+        DialogResult result = MessageBox.Show($"{_seciliUrun.Ad} ürünü silmek istiyor musunuz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
         if (result == DialogResult.Yes)
         {
-            _urunler.Remove(seciliUrun);
+            _urunler.Remove(_seciliUrun);
             lstUrunList.DataSource = null;
             lstUrunList.DataSource = _urunler;
             //FormuTemizle();
@@ -80,7 +77,7 @@ public partial class MenuForm : Form
 
     private void lstUrunList_SelectedIndexChanged(object sender, EventArgs e)
     {
-
+       
     }
 }
 

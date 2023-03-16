@@ -19,48 +19,44 @@ namespace Bagy_Yazilim.Forms;
 public partial class KatForm : Form
 {
     public EnvanterContext DataContext { get; set; }
+    private List<Kat> _katlar = new List<Kat>();
     public KatForm()
     {
         InitializeComponent();
-    }
-    // public string girilenSayi;
-
-    private void btnKatEkle_Click(object sender, EventArgs e)
-    {
-        try
-        {
-            Kat kat = new Kat()
-            {
-                Ad = txtKat.Text,
-                MasaSayisi = Convert.ToInt32(txtMasaSayisi.Text)
-            };
-            DataContext.Katlar.Add(kat);
-            lstKatlar.DataSource = null;
-            lstKatlar.DataSource = DataContext.Katlar;
-            for (int i = 1; i <= kat.MasaSayisi; i++)
-            {
-                Masa masa = new Masa()
-                {
-                    BulunduguKat = kat,
-                    Ad = "Masa" + i.ToString()
-                };
-                DataContext.Masalar.Add(masa);
-            }
-            DataHelper.Save(DataContext);
-        }
-        catch (Exception ex)
-        {
-            MessageBox.Show($"Bir Hata Oluştu: {ex.Message}");
-        }
-    }
+    } 
     private void KatForm_Load(object sender, EventArgs e)
     {
-        // flpKatlar.DataSource = DataContext.Katlar;
+         lstKatlar.DataSource = DataContext.Katlar;
 
     }
-
-    private void btnKatKaydet_Click(object sender, EventArgs e)
+    private void btnKatEkle_Click(object sender, EventArgs e)
     {
+        Kat kat = new Kat();
+        if (txtKat.Text != "")
+        {
+            Kat yeniKat = new Kat()
+            {
+                Ad = txtKat.Text
 
+            };
+
+            _katlar.Add(yeniKat);
+            lstKatlar.DataSource = _katlar;
+        }
+    }
+    private void silToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        if (lstKatlar.SelectedItem == null) return;
+        var seciliKat = lstKatlar.SelectedItem as Kat;
+        DialogResult result = MessageBox.Show($"{seciliKat.Ad} .katı silmek istediğinize emin misiniz?", "Silme Onayı", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+        if (result == DialogResult.Yes)
+        {
+            DataContext.Katlar.Remove(seciliKat);
+            lstKatlar.DataSource = null;
+            lstKatlar.DataSource = DataContext.Katlar;
+            DataHelper.Save(DataContext);
+
+        }
     }
 }

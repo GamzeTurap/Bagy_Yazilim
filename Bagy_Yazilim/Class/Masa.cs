@@ -11,5 +11,6 @@ public class Masa
     public string Ad { get; set; }
     public Kat BulunduguKat { get; set; }
 
-   // public List<Kategori>Kategoriler  { get; set; } = new List<Kategori>();
+    public override string ToString() => $"{this.Ad}";
+
 }

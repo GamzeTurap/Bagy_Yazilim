@@ -3,57 +3,57 @@ using Bagy_Yazilim.Data;
 using Bagy_Yazilim.Forms;
 using Bagy_Yazilim.Helpers;
 
-namespace Bagy_Yazilim
+namespace Bagy_Yazilim;
+
+public partial class Giris : Form
 {
-    public partial class Giris : Form
+    public Giris()
     {
-        public Giris()
-        {
-            InitializeComponent();
-        }
-        private KatForm _katForm;
-        private MasaForm _masaForm;
-        private MenuForm _menuForm;
-        private EnvanterContext _dataContext;
+        InitializeComponent();
+    }
 
-        private Urun? _seciliUrun;
+   // private AnaForm _anaForm;
+    private KatForm _katForm;
+    private MasaForm _masaForm;
+    private MenuForm _menuForm;
+    private EnvanterContext _dataContext;
 
-        private void katEkleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_katForm == null)
-            {
-                _katForm = new KatForm();
-                _katForm.Text = "Kat Formu";
-                _katForm.DataContext = _dataContext;
-                _katForm.Show();
-            }
-        }
-        private void masaEkleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_masaForm == null)
-            {
-                _masaForm = new MasaForm();
-                _masaForm.Text = "Masa Formu";
-                _masaForm.DataContext = _dataContext;
-                _masaForm.Show();
-            }
-        }
-        private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            if (_menuForm == null)
-            {
-                _menuForm = new MenuForm();
-                _menuForm.Text = "Masa Formu";
-                _menuForm.DataContext = _dataContext;
-                _menuForm.Show();
-            }
-        }
+    private Urun? _seciliUrun;
 
-        private void Giris_Load(object sender, EventArgs e)
+    private void Giris_Load(object sender, EventArgs e)
+    {
+        var data = DataHelper.Load();
+        _dataContext = data ?? new();
+    }
+    private void katEkleToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        if (_katForm == null)
         {
-             //var data = DataHelpers.Load();
-             //_dataContext = data ?? new();
+            _katForm = new KatForm();
+            _katForm.Text = "Kat Formu";
+            _katForm.DataContext = _dataContext;
+            _katForm.Show();
         }
-
+    }
+    private void masaEkleToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        if (_masaForm == null || _masaForm.IsDisposed)
+        {
+            _masaForm = new MasaForm();
+            _masaForm.MdiParent = this;
+            _masaForm.Text = "Masa Formu";
+            _masaForm.DataContext = _dataContext;
+            _masaForm.Show();
+        }
+    }
+    private void ürünEkleToolStripMenuItem_Click(object sender, EventArgs e)
+    {
+        if (_menuForm == null|| _menuForm.IsDisposed)
+        {
+            _menuForm = new MenuForm();
+            _menuForm.Text = "Masa Formu";
+            _menuForm.DataContext = _dataContext;
+            _menuForm.Show();
+        }
     }
 }

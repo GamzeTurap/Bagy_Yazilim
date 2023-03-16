@@ -28,10 +28,14 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             btnKatEkle = new Button();
             txtKat = new TextBox();
             lstKatlar = new ListBox();
-            txtMasaSayisi = new TextBox();
+            cmsSil = new ContextMenuStrip(components);
+            silToolStripMenuItem = new ToolStripMenuItem();
+            güncelleToolStripMenuItem = new ToolStripMenuItem();
+            cmsSil.SuspendLayout();
             SuspendLayout();
             // 
             // btnKatEkle
@@ -62,12 +66,25 @@
             lstKatlar.Size = new Size(120, 199);
             lstKatlar.TabIndex = 4;
             // 
-            // txtMasaSayisi
+            // cmsSil
             // 
-            txtMasaSayisi.Location = new Point(154, 222);
-            txtMasaSayisi.Name = "txtMasaSayisi";
-            txtMasaSayisi.Size = new Size(100, 23);
-            txtMasaSayisi.TabIndex = 5;
+            cmsSil.Items.AddRange(new ToolStripItem[] { silToolStripMenuItem, güncelleToolStripMenuItem });
+            cmsSil.Name = "cmsSil";
+            cmsSil.Size = new Size(121, 48);
+            cmsSil.Click += silToolStripMenuItem_Click;
+            // 
+            // silToolStripMenuItem
+            // 
+            silToolStripMenuItem.Name = "silToolStripMenuItem";
+            silToolStripMenuItem.Size = new Size(120, 22);
+            silToolStripMenuItem.Text = "Sil";
+            silToolStripMenuItem.Click += silToolStripMenuItem_Click;
+            // 
+            // güncelleToolStripMenuItem
+            // 
+            güncelleToolStripMenuItem.Name = "güncelleToolStripMenuItem";
+            güncelleToolStripMenuItem.Size = new Size(120, 22);
+            güncelleToolStripMenuItem.Text = "Güncelle";
             // 
             // KatForm
             // 
@@ -76,12 +93,12 @@
             BackgroundImage = Properties.Resources.cafe_de_paris__1_;
             BackgroundImageLayout = ImageLayout.Stretch;
             ClientSize = new Size(490, 378);
-            Controls.Add(txtMasaSayisi);
             Controls.Add(lstKatlar);
             Controls.Add(txtKat);
             Controls.Add(btnKatEkle);
             Name = "KatForm";
             Text = "KatForm";
+            cmsSil.ResumeLayout(false);
             ResumeLayout(false);
             PerformLayout();
         }
@@ -91,6 +108,8 @@
         private Button btnKatEkle;
         private TextBox txtKat;
         private ListBox lstKatlar;
-        private TextBox txtMasaSayisi;
+        private ContextMenuStrip cmsSil;
+        private ToolStripMenuItem silToolStripMenuItem;
+        private ToolStripMenuItem güncelleToolStripMenuItem;
     }
 }

@@ -8,5 +8,6 @@ public class Kat
     public int KatSayisi { get; set; }
     public int MasaSayisi { get; set; }
 
+    public override string ToString() => $"{this.Ad}" ;
     // public List<Masa> Masalar { get; set; } = new List<Masa>();
 }
