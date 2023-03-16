@@ -11,6 +11,8 @@ namespace Bagy_Yazilim.Data
     {
         public List<Kat> Katlar{ get; set; } = new List<Kat>();
         public List<Masa> Masalar { get; set; } = new List<Masa>();
+        public List<Urun> Urunler { get; set; } = new List<Urun>();
+
         public List<Kategori> Kategoriler { get; set; } = new List<Kategori>();
     }
 }

@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace Bagy_Yazilim.Class;
 
-public class Masa
+public class Urun
 {
     public string Ad { get; set; }
-    public Kat BulunduguKat { get; set; }
-
-   // public List<Kategori>Kategoriler  { get; set; } = new List<Kategori>();
+    public string Fiyat { get; set; }
+    public byte[] Fotograf { get; set; }
+    public override string ToString() => $"{this.Ad} {this.Fiyat}";
 }

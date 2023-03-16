@@ -1,3 +1,4 @@
+using Bagy_Yazilim.Class;
 using Bagy_Yazilim.Forms;
 
 namespace Bagy_Yazilim

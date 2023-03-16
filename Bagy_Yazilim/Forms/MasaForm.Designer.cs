@@ -28,29 +28,22 @@
         /// </summary>
         private void InitializeComponent()
         {
-            flpMasalar = new FlowLayoutPanel();
             txtMasa = new TextBox();
             btnMasaEkle = new Button();
+            flpMasalar = new FlowLayoutPanel();
             SuspendLayout();
-            // 
-            // flpMasalar
-            // 
-            flpMasalar.Location = new Point(56, 111);
-            flpMasalar.Name = "flpMasalar";
-            flpMasalar.Size = new Size(303, 144);
-            flpMasalar.TabIndex = 5;
             // 
             // txtMasa
             // 
-            txtMasa.Location = new Point(56, 54);
+            txtMasa.Location = new Point(49, 54);
             txtMasa.Name = "txtMasa";
-            txtMasa.Size = new Size(100, 23);
+            txtMasa.Size = new Size(184, 23);
             txtMasa.TabIndex = 4;
             // 
             // btnMasaEkle
             // 
             btnMasaEkle.BackColor = SystemColors.ActiveCaption;
-            btnMasaEkle.Location = new Point(223, 38);
+            btnMasaEkle.Location = new Point(326, 38);
             btnMasaEkle.Name = "btnMasaEkle";
             btnMasaEkle.Size = new Size(68, 53);
             btnMasaEkle.TabIndex = 3;
@@ -58,25 +51,33 @@
             btnMasaEkle.UseVisualStyleBackColor = false;
             btnMasaEkle.Click += btnMasaEkle_Click;
             // 
+            // flpMasalar
+            // 
+            flpMasalar.BackgroundImage = Properties.Resources.oze9010_2_560x560;
+            flpMasalar.BackgroundImageLayout = ImageLayout.Stretch;
+            flpMasalar.Location = new Point(-3, 97);
+            flpMasalar.Name = "flpMasalar";
+            flpMasalar.Size = new Size(422, 222);
+            flpMasalar.TabIndex = 5;
+            // 
             // MasaForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
+            BackgroundImage = Properties.Resources.oze9010_2_560x560;
             ClientSize = new Size(416, 320);
             Controls.Add(flpMasalar);
             Controls.Add(txtMasa);
             Controls.Add(btnMasaEkle);
             Name = "MasaForm";
             Text = "MasaForm";
-            Load += MasaForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
 
         #endregion
-
-        private FlowLayoutPanel flpMasalar;
         private TextBox txtMasa;
         private Button btnMasaEkle;
+        private FlowLayoutPanel flpMasalar;
     }
 }

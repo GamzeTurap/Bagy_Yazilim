@@ -30,15 +30,16 @@
         {
             btnKatEkle = new Button();
             txtKat = new TextBox();
-            flpKatlar = new FlowLayoutPanel();
+            lstKatlar = new ListBox();
+            txtMasaSayisi = new TextBox();
             SuspendLayout();
             // 
             // btnKatEkle
             // 
-            btnKatEkle.BackColor = SystemColors.ActiveCaption;
-            btnKatEkle.Location = new Point(213, 39);
+            btnKatEkle.BackColor = Color.LightCoral;
+            btnKatEkle.Location = new Point(234, 137);
             btnKatEkle.Name = "btnKatEkle";
-            btnKatEkle.Size = new Size(68, 53);
+            btnKatEkle.Size = new Size(74, 53);
             btnKatEkle.TabIndex = 0;
             btnKatEkle.Text = "Kat Ekle";
             btnKatEkle.UseVisualStyleBackColor = false;
@@ -46,29 +47,41 @@
             // 
             // txtKat
             // 
-            txtKat.Location = new Point(46, 55);
+            txtKat.BackColor = Color.GreenYellow;
+            txtKat.Location = new Point(154, 108);
             txtKat.Name = "txtKat";
-            txtKat.Size = new Size(100, 23);
+            txtKat.Size = new Size(154, 23);
             txtKat.TabIndex = 1;
             // 
-            // flpKatlar
+            // lstKatlar
             // 
-            flpKatlar.Location = new Point(46, 132);
-            flpKatlar.Name = "flpKatlar";
-            flpKatlar.Size = new Size(303, 144);
-            flpKatlar.TabIndex = 2;
+            lstKatlar.FormattingEnabled = true;
+            lstKatlar.ItemHeight = 15;
+            lstKatlar.Location = new Point(358, 80);
+            lstKatlar.Name = "lstKatlar";
+            lstKatlar.Size = new Size(120, 199);
+            lstKatlar.TabIndex = 4;
+            // 
+            // txtMasaSayisi
+            // 
+            txtMasaSayisi.Location = new Point(154, 222);
+            txtMasaSayisi.Name = "txtMasaSayisi";
+            txtMasaSayisi.Size = new Size(100, 23);
+            txtMasaSayisi.TabIndex = 5;
             // 
             // KatForm
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(492, 361);
-            Controls.Add(flpKatlar);
+            BackgroundImage = Properties.Resources.cafe_de_paris__1_;
+            BackgroundImageLayout = ImageLayout.Stretch;
+            ClientSize = new Size(490, 378);
+            Controls.Add(txtMasaSayisi);
+            Controls.Add(lstKatlar);
             Controls.Add(txtKat);
             Controls.Add(btnKatEkle);
             Name = "KatForm";
             Text = "KatForm";
-            Load += KatForm_Load;
             ResumeLayout(false);
             PerformLayout();
         }
@@ -77,6 +90,7 @@
 
         private Button btnKatEkle;
         private TextBox txtKat;
-        private FlowLayoutPanel flpKatlar;
+        private ListBox lstKatlar;
+        private TextBox txtMasaSayisi;
     }
 }

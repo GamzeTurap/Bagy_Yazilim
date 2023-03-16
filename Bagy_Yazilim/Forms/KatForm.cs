@@ -1,46 +1,66 @@
 ﻿using Bagy_Yazilim.Class;
+using Bagy_Yazilim.Data;
+using Bagy_Yazilim.Helpers;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Bagy_Yazilim.Forms
+namespace Bagy_Yazilim.Forms;
+
+
+public partial class KatForm : Form
 {
-    public partial class KatForm : Form
+    public EnvanterContext DataContext { get; set; }
+    public KatForm()
     {
-        public KatForm()
-        {
-            InitializeComponent();
-        }
-        // public string girilenSayi;
+        InitializeComponent();
+    }
+    // public string girilenSayi;
 
-        private void btnKatEkle_Click(object sender, EventArgs e)
+    private void btnKatEkle_Click(object sender, EventArgs e)
+    {
+        try
         {
-            Kat kat = new Kat();
-            if (txtKat.Text != "")
+            Kat kat = new Kat()
             {
-                kat.Ad = txtKat.Text;
-                Button btn = new Button();
-                btn.Text = kat.Ad;
-                flpKatlar.Controls.Add(btn);
-            }
-
-            else
+                Ad = txtKat.Text,
+                MasaSayisi = Convert.ToInt32(txtMasaSayisi.Text)
+            };
+            DataContext.Katlar.Add(kat);
+            lstKatlar.DataSource = null;
+            lstKatlar.DataSource = DataContext.Katlar;
+            for (int i = 1; i <= kat.MasaSayisi; i++)
             {
-                MessageBox.Show("Hata");
-
+                Masa masa = new Masa()
+                {
+                    BulunduguKat = kat,
+                    Ad = "Masa" + i.ToString()
+                };
+                DataContext.Masalar.Add(masa);
             }
+            DataHelper.Save(DataContext);
         }
-
-        private void KatForm_Load(object sender, EventArgs e)
+        catch (Exception ex)
         {
-
+            MessageBox.Show($"Bir Hata Oluştu: {ex.Message}");
         }
+    }
+    private void KatForm_Load(object sender, EventArgs e)
+    {
+        // flpKatlar.DataSource = DataContext.Katlar;
+
+    }
+
+    private void btnKatKaydet_Click(object sender, EventArgs e)
+    {
+
     }
 }

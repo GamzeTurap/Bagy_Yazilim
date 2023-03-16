@@ -17,12 +17,6 @@ namespace Bagy_Yazilim.Forms
         {
             InitializeComponent();
         }
-
-        private void MasaForm_Load(object sender, EventArgs e)
-        {
-
-        }
-
         private void btnMasaEkle_Click(object sender, EventArgs e)
         {
             Masa masa = new Masa();
