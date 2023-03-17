@@ -14,7 +14,7 @@ public class Urun
     public int AdisyondakiAdet { get; set; }
     public decimal ToplamFiyat()
     {
-        return Fiyat * AdisyondakiAdet;
+        return Convert.ToInt32(Fiyat) * AdisyondakiAdet;
     }
 
     public override string ToString() => $"{this.Ad} {this.Fiyat}";
